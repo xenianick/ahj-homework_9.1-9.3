@@ -14,28 +14,23 @@ export default class LikeBtn {
     likeBtn.type = 'button';
     likeBtnContainer.appendChild(likeBtn);
 
-    const heartIcon1 = createNewElement('img', 'heart-icon-1 icon-soaring-1');
-    const heartIcon2 = createNewElement('img', 'heart-icon-2 icon-soaring-2');
+    function createHeartIcon() {
+      const heartIcon = createNewElement('img', 'heart-icon icon-soaring-1');
+      heartIcon.src = './heart.png';
+      return heartIcon;
+    }
 
-    heartIcon1.src = './heart.png';
-    heartIcon2.src = './heart.png';
+    likeBtn.addEventListener('click', () => {
+      const heartIcon = createHeartIcon();
+      likeBtnContainer.appendChild(heartIcon);
 
-    likeBtn.addEventListener('mouseover', () => {
-      likeBtnContainer.appendChild(heartIcon1);
-      likeBtnContainer.appendChild(heartIcon2);
-    });
-    likeBtn.addEventListener('mouseout', () => {
-      heartIcon1.remove();
-      heartIcon2.remove();
-    });
-
-    heartIcon1.addEventListener('animationiteration', () => {
-      const num = getRandom(1, 5);
-      heartIcon1.className = `heart-icon-1 icon-soaring-${num}`;
-    });
-    heartIcon2.addEventListener('animationiteration', () => {
-      const num = getRandom(1, 5);
-      heartIcon2.className = `heart-icon-2 icon-soaring-${num}`;
+      heartIcon.addEventListener('animationstart', () => {
+        const num = getRandom(1, 5);
+        heartIcon.className = `heart-icon icon-soaring-${num}`;
+      });
+      heartIcon.addEventListener('animationend', () => {
+        heartIcon.remove();
+      });
     });
 
     return likeBtnContainer;

@@ -145,7 +145,7 @@ body {
   box-sizing: border-box;
   z-index: 99;
 }
-:global(.heart-icon-1) {
+:global(.heart-icon) {
   position: absolute;
   bottom: 13px;
   right: 28px;
@@ -153,17 +153,7 @@ body {
   animation-duration: 500ms;
   animation-timing-function: ease-out;
   animation-delay: 0;
-  animation-iteration-count: infinite;
-}
-:global(.heart-icon-2) {
-  position: absolute;
-  bottom: 13px;
-  right: 28px;
-  pointer-events: none;
-  animation-duration: 500ms;
-  animation-timing-function: ease-out;
-  animation-delay: 250ms;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
 }
 :global(.icon-soaring-1) {
   animation-name: soaring1;
